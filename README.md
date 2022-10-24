@@ -15,7 +15,7 @@ If you are not familiar with the different technologies used in this project, pl
 
 We also [roll our own docs](https://beta.create.t3.gg) with some summary information and links to the respective documentation.
 
-Also checkout these awesome tutorials on `create-t3-app`.
+Also checkout these cool tutorials on `create-t3-app`.
 
 - [Build a Blog With the T3 Stack - tRPC, TypeScript, Next.js, Prisma & Zod](https://www.youtube.com/watch?v=syEWlxVFUrY)
 - [Build a Live Chat Application with the T3 Stack - TypeScript, Tailwind, tRPC](https://www.youtube.com/watch?v=dXRRY37MPuk)
