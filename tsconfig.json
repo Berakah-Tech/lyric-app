@@ -22,7 +22,7 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    "src/pages/api/testSong.js"
+    "src/pages/api/testSong.ts"
   ],
   "exclude": ["node_modules"]
 }
