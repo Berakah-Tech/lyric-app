@@ -7,7 +7,7 @@ export const songRouter = router({
     // .input(z.object({ text: z.string().nullish() }).nullish())
     .query(({ input }) => {
       return {
-        greeting: `test song`,
+        greeting: `test clickup`,
       };
     }),
   getAll: publicProcedure.query(({ ctx }) => {
