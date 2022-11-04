@@ -11,7 +11,7 @@ datasource db {
   url                  = env("DATABASE_URL")
   // shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
   referentialIntegrity = "prisma"
-} 
+}
 
 model Example {
   id        String   @id @default(cuid())
@@ -25,14 +25,41 @@ enum Languages {
 }
 
 model Song {
-  id String @id @default(cuid())
+  id           String         @id @default(cuid())
+  name         String
+  author       String
+  lyrics       Json
+  music        Json
+  language     Languages
+  category     Category[]
+  slug         String         @unique
+  SongsonBooks SongsonBooks[]
+}
+
+model Category {
+  id   String @id @default(cuid())
   name String
-  Author String
-  Lyrics Json
-  Music Json
-  Language Languages
-  Category String
-  Slug String
+  slug String @unique
+  song Song[]
+}
+
+model Book {
+  id           String         @id @default(cuid())
+  name         String
+  thumbnail    String
+  lanuguage    Languages
+  slug         String         @unique
+  SongsonBooks SongsonBooks[]
+}
+
+model SongsonBooks {
+  song       Song   @relation(fields: [songId], references: [id])
+  book       Book   @relation(fields: [bookId], references: [id])
+  songId     String
+  bookId     String
+  songNumber Int
+
+  @@id([songId, bookId])
 }
 
 // Necessary for Next auth
