@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 const prisma = new PrismaClient({ log: ["query", "info"] });
 
 const songs = async (req: NextApiRequest, res: NextApiResponse) => {
