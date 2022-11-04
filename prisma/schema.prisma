@@ -19,18 +19,13 @@ model Example {
   updatedAt DateTime @updatedAt
 }
 
-enum Languages {
-  EN
-  TM
-}
-
 model Song {
   id           String         @id @default(cuid())
   name         String
   author       String
   lyrics       Json
   music        Json
-  language     Languages
+  language     String
   category     Category[]
   slug         String         @unique
   SongsOnBooks SongsOnBooks[]
@@ -47,7 +42,7 @@ model Book {
   id           String         @id @default(cuid())
   name         String
   thumbnail    String
-  lanuguage    Languages
+  lanuguage    String
   slug         String         @unique
   SongsOnBooks SongsOnBooks[]
 }
@@ -60,6 +55,7 @@ model SongsOnBooks {
   songNumber Int
 
   @@id([songId, bookId])
+  @@unique([songNumber, bookId])
 }
 
 // Necessary for Next auth
