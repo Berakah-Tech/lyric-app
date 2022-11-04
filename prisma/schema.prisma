@@ -33,7 +33,7 @@ model Song {
   language     Languages
   category     Category[]
   slug         String         @unique
-  SongsonBooks SongsonBooks[]
+  SongsOnBooks SongsOnBooks[]
 }
 
 model Category {
@@ -49,10 +49,10 @@ model Book {
   thumbnail    String
   lanuguage    Languages
   slug         String         @unique
-  SongsonBooks SongsonBooks[]
+  SongsOnBooks SongsOnBooks[]
 }
 
-model SongsonBooks {
+model SongsOnBooks {
   song       Song   @relation(fields: [songId], references: [id])
   book       Book   @relation(fields: [bookId], references: [id])
   songId     String
