@@ -11,20 +11,6 @@ export const songRouter = router({
       return songCount;
     }),
   create: publicProcedure.input(createSongSchema).mutation(({ input, ctx }) => {
-    const songDummy = {
-      name: "Amazing Grace",
-      author: "Syles",
-      lyrics: {},
-      music: {},
-      language: "english",
-      slug: "asdasdas",
-    };
-
-    const slug = slugify(songDummy.name);
-    const song = { ...input, slug };
-
-    ctx.prisma.song.create({
-      data: song,
-    });
+    console.log(input);
   }),
 });
