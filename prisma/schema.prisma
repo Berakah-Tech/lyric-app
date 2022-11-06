@@ -21,13 +21,10 @@ model Example {
 
 model Song {
   id           String         @id @default(cuid())
-  name         String
-  author       String
-  lyrics       Json
+  languages    Json
+  locale       Json
   music        Json
-  language     String
   category     Category[]
-  slug         String         @unique
   SongsOnBooks SongsOnBooks[]
 }
 
