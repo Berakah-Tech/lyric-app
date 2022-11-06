@@ -2,7 +2,7 @@
 
 ## Roadmap
 
-- [ ] Model Data
+- [x] Model Data
 - [ ] Endpoints
   - [ ] Finalize
   - [ ] create validators
