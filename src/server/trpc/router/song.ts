@@ -1,14 +1,7 @@
 import { z } from "zod";
 import { router, publicProcedure } from "../trpc";
 import slugify from "slugify";
-
-const songSchema = z.object({
-  name: z.string(),
-  author: z.string(),
-  lyrics: z.object({}),
-  music: z.object({}),
-  language: z.string(),
-});
+import { createSongSchema } from "../../../validations/songValidations";
 
 export const songRouter = router({
   count: publicProcedure
@@ -17,8 +10,17 @@ export const songRouter = router({
       const songCount = ctx.prisma.song.count();
       return songCount;
     }),
-  create: publicProcedure.input(songSchema).mutation(({ input, ctx }) => {
-    const slug = slugify(input.name);
+  create: publicProcedure.input(createSongSchema).mutation(({ input, ctx }) => {
+    const songDummy = {
+      name: "Amazing Grace",
+      author: "Syles",
+      lyrics: {},
+      music: {},
+      language: "english",
+      slug: "asdasdas",
+    };
+
+    const slug = slugify(songDummy.name);
     const song = { ...input, slug };
 
     ctx.prisma.song.create({
