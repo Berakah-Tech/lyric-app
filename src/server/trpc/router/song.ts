@@ -10,21 +10,14 @@ export const songRouter = router({
       const songCount = ctx.prisma.song.count();
       return songCount;
     }),
-  create: publicProcedure.input(createSongSchema).mutation(({ input, ctx }) => {
-    const songDummy = {
-      name: "Amazing Grace",
-      author: "Syles",
-      lyrics: {},
-      music: {},
-      language: "english",
-      slug: "asdasdas",
-    };
-
-    const slug = slugify(songDummy.name);
-    const song = { ...input, slug };
-
-    ctx.prisma.song.create({
-      data: song,
-    });
-  }),
+  create: publicProcedure
+    .input(createSongSchema)
+    .mutation(async ({ input, ctx }) => {
+      console.log(input);
+      const data = await ctx.prisma.song.create({ data: input });
+      console.log(
+        "🚀 ~ file: song.ts ~ line 16 ~ create:publicProcedure.input ~ data",
+        data
+      );
+    }),
 });

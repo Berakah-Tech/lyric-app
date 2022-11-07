@@ -3,17 +3,26 @@ import type { z } from "zod";
 
 export type Languages = "English" | "Tamil";
 
-type Lyrics = {
+export type Lyrics = {
   chorus: string;
   stanzas: string[];
   bridge?: string;
   chorusOnEveryStanza: boolean;
-  language: string;
+  language: Languages;
 };
 
-type Song = {
+export type SongData = {
   name: string;
-  id: string;
-  language: Languages[];
-  lyrics: Lyrics[];
+  author?: string;
+  lyrics: Lyrics;
+  slug: string;
 };
+
+export type Song = {
+  languages: Languages[];
+  data: SongData[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  music?: any;
+};
+
+type zSong = z.infer<typeof createSongSchema>;

@@ -22,7 +22,7 @@ model Example {
 model Song {
   id           String         @id @default(cuid())
   languages    Json
-  locale       Json
+  data         Json
   music        Json
   category     Category[]
   SongsOnBooks SongsOnBooks[]

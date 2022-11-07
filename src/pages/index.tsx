@@ -1,34 +1,47 @@
 import { type NextPage } from "next";
+import { type zSong } from "../types/types";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const hello = trpc.song.count.useQuery();
-
-  const songDummy = {
-    name: "Amazing Grace",
-    author: "Syles",
-    lyrics: {},
+  const songDummy: zSong = {
+    languages: ["English", "Tamil"],
+    data: [
+      {
+        name: "Holy Holy Holy",
+        author: "Syles",
+        slug: "holy-holy-holy",
+        lyrics: {
+          chorus: "string",
+          stanzas: ["string", "string"],
+          bridge: "string",
+          chorusOnEveryStanza: true,
+          language: "English",
+        },
+      },
+      {
+        name: "தூய தூய தூயா",
+        author: "Jerome",
+        slug: "தூய-தூய-தூயா",
+        lyrics: {
+          chorus: "string",
+          stanzas: ["string", "string"],
+          bridge: "string",
+          chorusOnEveryStanza: true,
+          language: "Tamil",
+        },
+      },
+    ],
     music: {},
-    language: "english",
-    slug: "asdasdas",
   };
-
-  const songMutation = trpc.song.create.useMutation();
+  const { mutate, isSuccess } = trpc.song.create.useMutation();
+  const onSubmit = () => {
+    mutate(songDummy);
+  };
 
   return (
     <>
       <div>
-        {hello.data ? <p>{hello.data}</p> : <p>Loading..</p>}
-        <br />
-        {/* <p>{song.data?.name}</p> */}
-        <button
-          onClick={async () => {
-            const songReq = await songMutation.mutate(songDummy);
-            console.log("🚀 ~ file: index.tsx ~ line 27 ~ songReq", songReq);
-          }}
-        >
-          click me
-        </button>
+        <button onClick={onSubmit}>Click Me</button>
       </div>
     </>
   );
