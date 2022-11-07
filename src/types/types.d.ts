@@ -25,4 +25,4 @@ export type Song = {
   music?: any;
 };
 
-type zsong = z.infer<typeof createSongSchema>;
+type zSong = z.infer<typeof createSongSchema>;

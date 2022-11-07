@@ -1,24 +1,37 @@
 import { type NextPage } from "next";
-import { zsong, type Song } from "../types/types";
+import { type zSong } from "../types/types";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const songDummy: zsong = {
+  const songDummy: zSong = {
     languages: ["English", "Tamil"],
     data: [
       {
-        name: "op",
-        author: "asd",
-        slug: "asd",
+        name: "Holy Holy Holy",
+        author: "Syles",
+        slug: "holy-holy-holy",
         lyrics: {
           chorus: "string",
-          stanzas: "string",
+          stanzas: ["string", "string"],
           bridge: "string",
           chorusOnEveryStanza: true,
-          language: ["dfgh", "ASdas"],
+          language: "English",
+        },
+      },
+      {
+        name: "தூய தூய தூயா",
+        author: "Jerome",
+        slug: "தூய-தூய-தூயா",
+        lyrics: {
+          chorus: "string",
+          stanzas: ["string", "string"],
+          bridge: "string",
+          chorusOnEveryStanza: true,
+          language: "Tamil",
         },
       },
     ],
+    music: {},
   };
   // const songDummy: zsong = {
   //   languages: ["English", "Tamil"],
