@@ -1,39 +1,39 @@
 import { type NextPage } from "next";
-import { type zSong } from "../types/types";
+import { type Song } from "../types/types";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const songDummy: zSong = {
+  const songDummy: Song = {
     languages: ["English", "Tamil"],
     data: [
       {
         name: "Holy Holy Holy",
         author: "Syles",
         slug: "holy-holy-holy",
+        language: "English",
         lyrics: {
           chorus: "string",
           stanzas: ["string", "string"],
           bridge: "string",
           chorusOnEveryStanza: true,
-          language: "English",
         },
       },
       {
         name: "தூய தூய தூயா",
         author: "Jerome",
         slug: "தூய-தூய-தூயா",
+        language: "Tamil",
         lyrics: {
           chorus: "string",
           stanzas: ["string", "string"],
           bridge: "string",
           chorusOnEveryStanza: true,
-          language: "Tamil",
         },
       },
     ],
-    music: {},
   };
-  const { mutate, isSuccess } = trpc.song.create.useMutation();
+
+  const { mutate } = trpc.song.create.useMutation();
   const onSubmit = () => {
     mutate(songDummy);
   };

@@ -1,28 +1,15 @@
-import type { createSongSchema } from "./../validations/songValidations";
+import type {
+  LanguageSchema,
+  LyricsSchema,
+  SongDataSchema,
+  SongSchema,
+} from "../validations/zodSchemas";
 import type { z } from "zod";
 
-export type Languages = "English" | "Tamil";
+export type Language = z.infer<typeof LanguageSchema>;
 
-export type Lyrics = {
-  chorus: string;
-  stanzas: string[];
-  bridge?: string;
-  chorusOnEveryStanza: boolean;
-  language: Languages;
-};
+export type Lyrics = z.infer<typeof LyricsSchema>;
 
-export type SongData = {
-  name: string;
-  author?: string;
-  lyrics: Lyrics;
-  slug: string;
-};
+export type SongData = z.infer<typeof SongDataSchema>;
 
-export type Song = {
-  languages: Languages[];
-  data: SongData[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  music?: any;
-};
-
-type zSong = z.infer<typeof createSongSchema>;
+export type Song = z.input<typeof SongSchema>;

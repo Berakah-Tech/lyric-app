@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { router, publicProcedure } from "../trpc";
 import slugify from "slugify";
-import { createSongSchema } from "../../../validations/songValidations";
+import { SongSchema } from "../../../validations/zodSchemas";
 
 export const songRouter = router({
   count: publicProcedure
@@ -10,14 +10,12 @@ export const songRouter = router({
       const songCount = ctx.prisma.song.count();
       return songCount;
     }),
-  create: publicProcedure
-    .input(createSongSchema)
-    .mutation(async ({ input, ctx }) => {
-      console.log(input);
-      const data = await ctx.prisma.song.create({ data: input });
-      console.log(
-        "🚀 ~ file: song.ts ~ line 16 ~ create:publicProcedure.input ~ data",
-        data
-      );
-    }),
+  create: publicProcedure.input(SongSchema).mutation(async ({ input, ctx }) => {
+    console.log(input);
+    const data = await ctx.prisma.song.create({ data: input });
+    console.log(
+      "🚀 ~ file: song.ts ~ line 16 ~ create:publicProcedure.input ~ data",
+      data
+    );
+  }),
 });
