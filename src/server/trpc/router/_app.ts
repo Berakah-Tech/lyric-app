@@ -1,6 +1,6 @@
 import { router } from "../trpc";
 import { authRouter } from "./auth";
-import { songRouter } from "./song";
+import { songRouter } from "./song.router";
 
 export const appRouter = router({
   song: songRouter,
