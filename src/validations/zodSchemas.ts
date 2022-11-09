@@ -13,8 +13,8 @@ export const SongDataSchema = z.object({
   name: z.string(),
   language: LanguageSchema,
   lyrics: LyricsSchema,
-  author: z.string(),
-  slug: z.string(),
+  author: z.string().optional(),
+  slug: z.string().optional(),
 });
 
 export const MusicSchema = z
