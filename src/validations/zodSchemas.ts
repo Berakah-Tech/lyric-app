@@ -33,7 +33,7 @@ export const SongSchema = z.object({
 
 export const BookSchema = z.object({
   name: z.string(),
-  thumbnail: z.string().url().optional(),
+  thumbnail: z.string().url().default(""),
   lanuguage: LanguageSchema,
   slug: z.string(),
 });

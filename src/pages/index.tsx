@@ -34,7 +34,7 @@ const Home: NextPage = () => {
   };
 
   // const { mutate } = trpc.song.createSong.useMutation();
-  const { data } = trpc.song.readSong.useQuery("cla8jz84z0002w4vgsmcdburx");
+  const { data } = trpc.song.byId.useQuery("cla8jz84z0002w4vgsmcdburx");
   const onSubmit = () => {
     console.log(data);
   };
