@@ -20,4 +20,11 @@ export const songRouter = router({
         data
       );
     }),
+  readSong: publicProcedure.input(z.string()).query(async ({ input }) => {
+    const user = await prisma?.song.findUnique({
+      where: {
+        id: input,
+      },
+    });
+  }),
 });
