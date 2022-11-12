@@ -9,6 +9,6 @@
   - [ ] Build endpoints
 - [ ] Add dummy Data
 - [ ] Wireframe UI
-- [ ] Design UI
+- [ ] Design UI 
 - [ ] UI Development
 - [ ] Add Analytics
