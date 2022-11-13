@@ -4,20 +4,22 @@ import slugify from "slugify";
 import { SongSchema } from "../../../validations/zodSchemas";
 
 export const songRouter = router({
-  countSong: publicProcedure
-    // .input(z.object({ text: z.string().nullish() }).nullish())
-    .query(({ ctx }) => {
-      const songCount = ctx.prisma.song.count();
-      return songCount;
-    }),
-  createSong: publicProcedure
-    .input(SongSchema)
-    .mutation(async ({ input, ctx }) => {
-      console.log(input);
-      const data = await ctx.prisma.song.create({ data: input });
-      console.log(
-        "🚀 ~ file: song.ts ~ line 16 ~ create:publicProcedure.input ~ data",
-        data
-      );
-    }),
+  add: publicProcedure.input(SongSchema).mutation(async ({ input, ctx }) => {
+    console.log(input);
+    const data = await ctx.prisma.song.create({ data: input });
+  }),
+  byId: publicProcedure.input(z.string()).query(async ({ input, ctx }) => {
+    const data = await ctx.prisma.song.findUnique({
+      where: {
+        id: input,
+      },
+    });
+  }),
+  delete: publicProcedure.input(z.string()).query(async ({ input, ctx }) => {
+    const data = await ctx.prisma.song.delete({
+      where: {
+        id: input,
+      },
+    });
+  }),
 });

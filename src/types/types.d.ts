@@ -1,4 +1,5 @@
 import type {
+  BookSchema,
   LanguageSchema,
   LyricsSchema,
   SongDataSchema,
@@ -13,3 +14,5 @@ export type Lyrics = z.infer<typeof LyricsSchema>;
 export type SongData = z.infer<typeof SongDataSchema>;
 
 export type Song = z.input<typeof SongSchema>;
+
+export type Book = z.input<typeof BookSchema>;
