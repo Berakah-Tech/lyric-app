@@ -1,12 +1,12 @@
 import React, { type ReactElement } from "react";
 import AdminLayout from "../../../layouts/AdminLayout";
 
-const BookPage = () => {
-  return <div>Book Page</div>;
+const SongPage = () => {
+  return <div>Song Page</div>;
 };
 
-BookPage.getLayout = (page: ReactElement) => {
+SongPage.getLayout = (page: ReactElement) => {
   return <AdminLayout>{page}</AdminLayout>;
 };
 
-export default BookPage;
+export default SongPage;

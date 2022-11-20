@@ -1,7 +1,7 @@
 import React from "react";
 
 const AdminHeader = () => {
-  return <div>AdminHeader</div>;
+  return <div>Admin Header</div>;
 };
 
 export default AdminHeader;

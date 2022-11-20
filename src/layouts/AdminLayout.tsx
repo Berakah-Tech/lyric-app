@@ -1,5 +1,5 @@
 import React from "react";
-import AdminHeader from "./AdminHeader";
+import AdminHeader from "../components/AdminHeader";
 
 interface LayoutProps {
   children: React.ReactNode;
