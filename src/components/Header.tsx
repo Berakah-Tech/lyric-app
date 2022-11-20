@@ -1,13 +1,12 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Header = () => {
-  const { data, status } = useSession();
-  console.log("🚀 ~ file: Header.tsx ~ line 5 ~ Header ~ data", data);
+  const { status } = useSession();
 
   const isAuthenticated = status === "authenticated";
 
   return (
-    <div>
+    <div className="flex border-b-2">
       <p>Header</p>
       <button
         className="bg-black p-2 text-red-50"

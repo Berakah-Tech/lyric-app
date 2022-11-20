@@ -1,41 +1,17 @@
+import Link from "next/link";
 import { type ReactElement } from "react";
 import Layout from "../layouts/Layout";
 import type { NextPageWithLayout } from "../types/types";
 
 const Home: NextPageWithLayout = () => {
-  // const songDummy: Song = {
-  //   languages: ["English", "Tamil"],
-  //   data: [
-  //     {
-  //       name: "Holy Holy Holy",
-  //       author: "Syles",
-  //       slug: "holy-holy-holy",
-  //       language: "English",
-  //       lyrics: {
-  //         chorus: "string",
-  //         stanzas: ["string", "string"],
-  //         bridge: "string",
-  //         chorusOnEveryStanza: true,
-  //       },
-  //     },
-  //     {
-  //       name: "தூய தூய தூயா",
-  //       author: "Jerome",
-  //       slug: "தூய-தூய-தூயா",
-  //       language: "Tamil",
-  //       lyrics: {
-  //         chorus: "string",
-  //         stanzas: ["string", "string"],
-  //         bridge: "string",
-  //         chorusOnEveryStanza: true,
-  //       },
-  //     },
-  //   ],
-  // };
-
   return (
     <>
-      <div>Home Page</div>
+      <div className="grid">
+        <p>Home Page</p>
+        <Link href={"/admin"} className="bg-black p-2 text-white">
+          Go to Admin Page
+        </Link>
+      </div>
     </>
   );
 };
