@@ -7,9 +7,19 @@ const UserPage = () => {
   console.log("🚀 ~ file: index.tsx ~ line 7 ~ UserPage ~ data", data);
 
   return (
-    <>
+    <div>
       <div>User Page</div>
-    </>
+      {data && (
+        <div>
+          {data.map((user) => (
+            <div key={user.id} className="flex">
+              <p className="mr-4">{user.name}</p>
+              <p>{user.email}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

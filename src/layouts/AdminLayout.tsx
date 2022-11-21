@@ -1,5 +1,6 @@
 import React from "react";
 import AdminHeader from "../components/AdminHeader";
+import AdminSidebar from "../components/AdminSidebar";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,10 +8,13 @@ interface LayoutProps {
 
 const AdminLayout = ({ children }: LayoutProps) => {
   return (
-    <>
+    <div className="admin-layout-wrap ">
       <AdminHeader />
-      {children}
-    </>
+      <div className="admin-layout-section container mx-auto mt-8 flex">
+        <AdminSidebar />
+        {children}
+      </div>
+    </div>
   );
 };
 
