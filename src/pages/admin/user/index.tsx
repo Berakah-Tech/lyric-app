@@ -1,8 +1,16 @@
 import React, { type ReactElement } from "react";
 import AdminLayout from "../../../layouts/AdminLayout";
+import { trpc } from "../../../utils/trpc";
 
 const UserPage = () => {
-  return <div>User Page</div>;
+  const { data } = trpc.user.getAll.useQuery();
+  console.log("🚀 ~ file: index.tsx ~ line 7 ~ UserPage ~ data", data);
+
+  return (
+    <>
+      <div>User Page</div>
+    </>
+  );
 };
 
 UserPage.getLayout = (page: ReactElement) => {
