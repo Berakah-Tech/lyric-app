@@ -4,6 +4,10 @@ import { BookSchema } from "../../../validations/zodSchemas";
 import { z } from "zod";
 
 export const bookRouter = router({
+  getAll: publicProcedure.query(({ ctx }) => {
+    const allBooks = ctx.prisma.book.findMany();
+    return allBooks;
+  }),
   add: publicProcedure.input(BookSchema).mutation(async ({ input, ctx }) => {
     const data = await ctx.prisma.book.create({ data: input });
   }),
