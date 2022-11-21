@@ -26,8 +26,11 @@ export const MusicSchema = z
   .partial();
 
 export const SongSchema = z.object({
-  languages: LanguageSchema.array(),
-  data: SongDataSchema.array(),
+  language: LanguageSchema,
+  name: z.string(),
+  lyrics: LyricsSchema,
+  slug: z.string().optional(),
+  author: z.string().optional(),
   music: MusicSchema.default({}),
 });
 
