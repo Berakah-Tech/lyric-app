@@ -4,7 +4,6 @@ import { trpc } from "../../../utils/trpc";
 
 const UserPage = () => {
   const { data } = trpc.user.getAll.useQuery();
-  console.log("🚀 ~ file: index.tsx ~ line 7 ~ UserPage ~ data", data);
 
   return (
     <div>
