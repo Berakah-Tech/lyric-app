@@ -31,7 +31,7 @@ export const SongSchema = z.object({
   lyrics: LyricsSchema,
   slug: z.string().optional(),
   author: z.string().optional(),
-  music: MusicSchema.default({}),
+  music: MusicSchema.optional(),
 });
 
 export const BookSchema = z.object({
