@@ -1,3 +1,4 @@
+import { prisma } from "./../../db/client";
 import { z } from "zod";
 import { router, publicProcedure } from "../trpc";
 import slugify from "slugify";
@@ -14,6 +15,10 @@ export const songRouter = router({
         id: input,
       },
     });
+  }),
+  getAll: publicProcedure.query(async ({ ctx }) => {
+    const data = await ctx.prisma.song.findMany();
+    return data;
   }),
   delete: publicProcedure.input(z.string()).query(async ({ input, ctx }) => {
     const data = await ctx.prisma.song.delete({
