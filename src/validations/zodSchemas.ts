@@ -9,14 +9,6 @@ export const LyricsSchema = z.object({
   chorusOnEveryStanza: z.boolean(),
 });
 
-export const SongDataSchema = z.object({
-  name: z.string(),
-  language: LanguageSchema,
-  lyrics: LyricsSchema,
-  author: z.string().optional(),
-  slug: z.string().optional(),
-});
-
 export const MusicSchema = z
   .object({
     scale: z.string(),
@@ -36,9 +28,9 @@ export const SongSchema = z.object({
 
 export const BookSchema = z.object({
   name: z.string(),
-  thumbnail: z.string().url().default(""),
+  thumbnail: z.string().url().optional(),
   lanuguage: LanguageSchema,
-  slug: z.string(),
+  slug: z.string().optional(),
 });
 
 export const SongsOnBooksSchema = z.object({
