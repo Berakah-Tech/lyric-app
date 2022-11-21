@@ -1,8 +1,24 @@
 import React, { type ReactElement } from "react";
 import AdminLayout from "../../../layouts/AdminLayout";
+import { trpc } from "../../../utils/trpc";
 
 const BookPage = () => {
-  return <div>Book Page</div>;
+  const { data } = trpc.book.getAll.useQuery();
+
+  return (
+    <div>
+      <p>Book Page</p>
+      {data && (
+        <div className="">
+          {data?.map((book) => (
+            <div key={book.slug}>
+              <p className="name">{book.name}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 };
 
 BookPage.getLayout = (page: ReactElement) => {
