@@ -4,20 +4,31 @@ import { trpc } from "../../../utils/trpc";
 
 const SongPage = () => {
   const { data } = trpc.song.getAll.useQuery();
-  
+
   return (
-    <div>
-      <div>Song Page</div>
-      <div className="admin-song-wrap">
-        {data && (
-          <div>
-            {data.map((song) => (
-              <div key={song.id}>
-                <p>{song.id}</p>
-              </div>
-            ))}
-          </div>
-        )}
+    <div className="w-full">
+      <div className="header-section flex justify-between">
+        <h1 className="text-2xl">Songs</h1>
+        <button className="btn-black">Add Song</button>
+      </div>
+      <div className="admin-songs-container mt-8">
+        <table className="w-full table-fixed">
+          <tbody>
+            <tr className="table-heading-row">
+              <th className="table-heading">Name</th>
+              <th className="table-heading w-[20%]">Language</th>
+              <th className="table-heading w-[20%]">Author</th>
+            </tr>
+            {data &&
+              data.map((song) => (
+                <tr key={song.id} className="table-data-row">
+                  <td className="table-data">{song.name}</td>
+                  <td className="table-data">{song.language}</td>
+                  <td className="table-data">{song.author}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
