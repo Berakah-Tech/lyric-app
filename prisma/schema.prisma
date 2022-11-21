@@ -21,9 +21,12 @@ model Example {
 
 model Song {
   id           String         @id @default(cuid())
-  languages    Json
-  data         Json
-  music        Json
+  language     String
+  name         String
+  lyrics       Json
+  slug         String?
+  author       String?
+  music        Json?
   category     Category[]
   SongsOnBooks SongsOnBooks[]
 }
@@ -38,9 +41,9 @@ model Category {
 model Book {
   id           String         @id @default(cuid())
   name         String
-  thumbnail    String
+  thumbnail    String?
   lanuguage    String
-  slug         String         @unique
+  slug         String?        @unique
   SongsOnBooks SongsOnBooks[]
 }
 

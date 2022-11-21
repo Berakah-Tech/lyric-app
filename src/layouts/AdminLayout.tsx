@@ -10,7 +10,7 @@ const AdminLayout = ({ children }: LayoutProps) => {
   return (
     <div className="admin-layout-wrap ">
       <AdminHeader />
-      <div className="admin-layout-section container mx-auto mt-8 flex">
+      <div className="admin-layout-section mt-8 flex">
         <AdminSidebar />
         {children}
       </div>
