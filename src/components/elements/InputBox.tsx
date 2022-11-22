@@ -1,13 +1,15 @@
+import clsx from "clsx";
 import React from "react";
 
 type TInputBoxProps = {
   children: React.ReactNode;
   label?: string;
   name: string;
+  className?: string;
 };
-const InputBox = ({ children, label, name }: TInputBoxProps) => {
+const InputBox = ({ children, label, name, className }: TInputBoxProps) => {
   return (
-    <div className="input-box flex flex-col">
+    <div className={clsx("input-box flex w-full flex-col", className)}>
       {label && (
         <label className="input-label mb-2" htmlFor={name}>
           {label}

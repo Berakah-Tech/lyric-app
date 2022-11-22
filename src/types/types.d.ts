@@ -16,6 +16,15 @@ export type TSong = z.input<typeof SongSchema>;
 
 export type TBook = z.input<typeof BookSchema>;
 
+export type TSongFormData = {
+  name: string;
+  author?: string;
+  slug?: string;
+  language: TLanguage;
+};
+
+export type TSongFormDataKey = keyof TSongFormData;
+
 export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<
   P,
   IP
