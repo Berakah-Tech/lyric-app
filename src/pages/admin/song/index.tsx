@@ -4,6 +4,7 @@ import { trpc } from "../../../utils/trpc";
 
 const SongPage = () => {
   const { data } = trpc.song.getAll.useQuery();
+  console.log("🚀 ~ file: index.tsx ~ line 7 ~ SongPage ~ data", data);
 
   return (
     <div className="w-full">
