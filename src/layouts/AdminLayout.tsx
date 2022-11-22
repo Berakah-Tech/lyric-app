@@ -8,11 +8,11 @@ interface LayoutProps {
 
 const AdminLayout = ({ children }: LayoutProps) => {
   return (
-    <div className="admin-layout-wrap ">
+    <div className="admin-layout-wrap h-screen">
       <AdminHeader />
-      <div className="admin-layout-section mt-8 flex">
+      <div className="admin-layout-section flex h-full">
         <AdminSidebar />
-        {children}
+        <div className="w-full p-8">{children}</div>
       </div>
     </div>
   );
