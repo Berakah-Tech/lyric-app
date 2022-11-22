@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React, { type ReactElement } from "react";
+import { adminSongCreatePage } from "../../../common/urls";
 import AdminLayout from "../../../layouts/AdminLayout";
 import { trpc } from "../../../utils/trpc";
 
@@ -10,7 +12,9 @@ const SongPage = () => {
     <div className="w-full">
       <div className="header-section flex justify-between">
         <h1 className="text-2xl">Songs</h1>
-        <button className="btn-black">Add Song</button>
+        <Link href={adminSongCreatePage} className="btn-black">
+          Add Song
+        </Link>
       </div>
       <div className="admin-songs-container mt-8">
         <table className="w-full table-fixed">
