@@ -2,23 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .table-heading-row {
-    .table-heading {
-      @apply text-left;
-    }
-  }
-  .table-data-row {
-    .table-data {
-      @apply text-left;
-    }
-  }
+@import url("./table.css");
+@import url("./elements.css");
 
-  .btn-black {
-    @apply inline-block rounded bg-black p-2 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out;
-
-    &:hover {
-      @apply bg-gray-700 shadow;
-    }
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
   }
 }

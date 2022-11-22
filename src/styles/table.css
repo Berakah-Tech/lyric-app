@@ -1,0 +1,14 @@
+@tailwind components;
+
+@layer components {
+  .table-heading-row {
+    .table-heading {
+      @apply text-left;
+    }
+  }
+  .table-data-row {
+    .table-data {
+      @apply text-left;
+    }
+  }
+}
