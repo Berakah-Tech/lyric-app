@@ -1,4 +1,5 @@
 import { type ReactElement } from "react";
+import Input from "../../../components/elements/Input";
 import AdminLayout from "../../../layouts/AdminLayout";
 
 const CreateSongPage = () => {
@@ -10,7 +11,9 @@ const CreateSongPage = () => {
             <h1>Add a Song</h1>
           </div>
           <div className="song-input-section flex-1">
-            <div></div>
+            <div>
+              <Input label="Name" name="name" />
+            </div>
           </div>
         </div>
         <div className="song-right-section w-[200px] bg-gray-100">tests</div>
