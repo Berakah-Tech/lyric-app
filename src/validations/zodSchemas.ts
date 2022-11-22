@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const LanguageSchema = z.enum(["English", "Tamil"]);
+export const LanguageSchema = z.enum(["english", "tamil"]);
 
 export const LyricsSchema = z.object({
   chorus: z.string(),
