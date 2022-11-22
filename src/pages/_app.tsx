@@ -4,6 +4,7 @@ import type { NextPageWithLayout } from "../types/types";
 import { SessionProvider } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 import "../styles/globals.css";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 type CustomAppProps = AppProps & {
   Component: NextPageWithLayout;
@@ -17,6 +18,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 
   return (
     <SessionProvider session={session}>
+      <ReactQueryDevtools position="bottom-right" />
       {getLayout(<Component {...pageProps} />)}
     </SessionProvider>
   );
