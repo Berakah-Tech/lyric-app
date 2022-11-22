@@ -1,11 +1,4 @@
-import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
-import {
-  adminBookPage,
-  adminCategoryPage,
-  adminSongPage,
-  adminUsersPage,
-} from "../common/urls";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const AdminHeader = () => {
   const { status } = useSession({ required: true });
