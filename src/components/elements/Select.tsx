@@ -1,4 +1,4 @@
-import React from "react";
+import { useId } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import ReactSelect from "react-select";
 import { languageOptions } from "../../common/data";
@@ -15,6 +15,9 @@ type TSelectInputProps = {
 const Select = ({ name, label, boxClass }: TSelectInputProps) => {
   const { control } = useFormContext();
   const defaultValue = LanguageSchema.enum.english;
+
+  const uniqueID = useId();
+
   return (
     <InputBox name={name} label={label} className={boxClass}>
       <Controller
@@ -26,6 +29,7 @@ const Select = ({ name, label, boxClass }: TSelectInputProps) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             //   @ts-ignore
             inputRef={ref}
+            instanceId={uniqueID}
             options={languageOptions}
             value={languageOptions.find((option) => option.value === value)}
             onChange={(option) => onChange(option?.value)}

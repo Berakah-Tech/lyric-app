@@ -8,4 +8,8 @@
       @apply bg-gray-700 shadow;
     }
   }
+
+  .input-field {
+    @apply border-2 border-gray-400;
+  }
 }

@@ -22,7 +22,7 @@ const Input = ({
     <InputBox label={label} name={name} className={boxClass}>
       <input
         id={name}
-        className={clsx("input-field", "border-2 border-gray-400", className)}
+        className={clsx("input-field", className)}
         {...restProps}
         {...register(name)}
       />
