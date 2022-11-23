@@ -23,6 +23,8 @@ export type TSongFormData = {
   language: TLanguage;
 };
 
+export type TSelectOptions = { value: string; label: string }[];
+
 export type TSongFormDataKey = keyof TSongFormData;
 
 export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<

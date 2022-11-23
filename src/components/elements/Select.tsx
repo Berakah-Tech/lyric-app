@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import ReactSelect from "react-select";
-import type { TSongFormDataKey } from "../../types/types";
+import type { TSelectOptions, TSongFormDataKey } from "../../types/types";
 import InputBox from "./InputBox";
 
 type TSelectInputProps = {
@@ -9,7 +9,7 @@ type TSelectInputProps = {
   name: TSongFormDataKey;
   boxClass?: string;
   defaultValue: string;
-  options: { value: string; label: string }[];
+  options: TSelectOptions
 };
 
 const Select = ({
