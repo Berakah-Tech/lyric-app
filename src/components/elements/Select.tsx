@@ -1,20 +1,25 @@
 import { useId } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import ReactSelect from "react-select";
-import { languageOptions } from "../../common/data";
 import type { TSongFormDataKey } from "../../types/types";
-import { LanguageSchema } from "../../validations/zodSchemas";
 import InputBox from "./InputBox";
 
 type TSelectInputProps = {
   label?: string;
   name: TSongFormDataKey;
   boxClass?: string;
+  defaultValue: string;
+  options: { value: string; label: string }[];
 };
 
-const Select = ({ name, label, boxClass }: TSelectInputProps) => {
+const Select = ({
+  name,
+  label,
+  boxClass,
+  defaultValue,
+  options,
+}: TSelectInputProps) => {
   const { control } = useFormContext();
-  const defaultValue = LanguageSchema.enum.english;
 
   const uniqueID = useId();
 
@@ -30,8 +35,8 @@ const Select = ({ name, label, boxClass }: TSelectInputProps) => {
             //   @ts-ignore
             inputRef={ref}
             instanceId={uniqueID}
-            options={languageOptions}
-            value={languageOptions.find((option) => option.value === value)}
+            options={options}
+            value={options.find((option) => option.value === value)}
             onChange={(option) => onChange(option?.value)}
             name={name}
           />
