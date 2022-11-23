@@ -22,6 +22,8 @@ export type TSongFormData = {
   slug?: string;
   language: TLanguage;
   chorus?: string;
+  bridge?: string;
+  lyrics?: { stanza: string }[];
 };
 
 export type TSelectOptions = { value: string; label: string }[];

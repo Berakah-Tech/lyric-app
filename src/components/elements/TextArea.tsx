@@ -23,7 +23,7 @@ const TextArea = ({
     <InputBox label={label} name={name} className={boxClass}>
       <textarea
         id={name}
-        className={clsx("input-field", className)}
+        className={clsx("input-field h-20", className)}
         {...restProps}
         {...register(name)}
       />
