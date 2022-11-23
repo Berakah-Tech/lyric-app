@@ -21,6 +21,7 @@ export type TSongFormData = {
   author?: string;
   slug?: string;
   language: TLanguage;
+  chorus?: string;
 };
 
 export type TSelectOptions = { value: string; label: string }[];
