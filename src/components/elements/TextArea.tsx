@@ -1,24 +1,24 @@
 import clsx from "clsx";
 import React from "react";
+import type { FieldValues, Path } from "react-hook-form";
 import { useFormContext } from "react-hook-form";
-import type { TSongFormData, TSongFormDataKey } from "../../types/types";
 import InputBox from "./InputBox";
 
-interface ITextAreaProps
+interface ITextAreaProps<T>
   extends React.InputHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
-  name: TSongFormDataKey;
+  name: Path<T>;
   boxClass?: string;
 }
 
-const TextArea = ({
+const TextArea = <T extends FieldValues>({
   name,
   label,
   className,
   boxClass,
   ...restProps
-}: ITextAreaProps) => {
-  const { register } = useFormContext<TSongFormData>();
+}: ITextAreaProps<T>) => {
+  const { register } = useFormContext<T>();
   return (
     <InputBox label={label} name={name} className={boxClass}>
       <textarea

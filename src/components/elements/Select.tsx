@@ -1,25 +1,26 @@
 import { useId } from "react";
+import type { FieldValues, Path, PathValue } from "react-hook-form";
 import { Controller, useFormContext } from "react-hook-form";
 import ReactSelect from "react-select";
-import type { TSelectOptions, TSongFormDataKey } from "../../types/types";
+import type { TSelectOptions } from "../../types/types";
 import InputBox from "./InputBox";
 
-type TSelectInputProps = {
+type TSelectInputProps<T> = {
   label?: string;
-  name: TSongFormDataKey;
+  name: Path<T>;
   boxClass?: string;
-  defaultValue: string;
-  options: TSelectOptions
+  defaultValue?: PathValue<T, Path<T>>;
+  options: TSelectOptions;
 };
 
-const Select = ({
+const Select = <T extends FieldValues>({
   name,
   label,
   boxClass,
   defaultValue,
   options,
-}: TSelectInputProps) => {
-  const { control } = useFormContext();
+}: TSelectInputProps<T>) => {
+  const { control } = useFormContext<T>();
 
   const uniqueID = useId();
 
@@ -27,13 +28,10 @@ const Select = ({
     <InputBox name={name} label={label} className={boxClass}>
       <Controller
         control={control}
-        defaultValue={defaultValue}
         name={name}
-        render={({ field: { onChange, value, ref, name } }) => (
+        defaultValue={defaultValue}
+        render={({ field: { onChange, value, name } }) => (
           <ReactSelect
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            //   @ts-ignore
-            inputRef={ref}
             instanceId={uniqueID}
             options={options}
             value={options.find((option) => option.value === value)}
