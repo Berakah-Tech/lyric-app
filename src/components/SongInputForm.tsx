@@ -1,6 +1,8 @@
 import { useFormContext } from "react-hook-form";
 import { languageOptions } from "../common/data";
+import { generateSelectOptions } from "../common/utils";
 import type { TSongFormData } from "../types/types";
+import { trpc } from "../utils/trpc";
 import { LanguageSchema } from "../validations/zodSchemas";
 import Input from "./elements/Input";
 import Select from "./elements/Select";
@@ -17,17 +19,32 @@ const SongInputForm = () => {
   const SongSlug = SlugInput<TSongFormData>;
   const SongSelect = Select<TSongFormData>;
 
+  const { data: categoryData } = trpc.category.getAll.useQuery();
+
+  const categoryOptions = categoryData
+    ? generateSelectOptions(categoryData, {
+        value: "slug",
+        label: "name",
+      })
+    : [];
+
   return (
     <>
       <form className="grid grid-cols-2 gap-y-6 gap-x-8">
         <SongInput label="Name" name="name" />
         <SongSlug label="Slug" name="slug" slugFrom="name" />
         <SongInput label="Author" name="author" />
+        <div></div>
         <SongSelect
           label="Language"
           name="language"
           defaultValue={defaultValue}
           options={languageOptions}
+        />
+        <SongSelect
+          label="Category"
+          name="category"
+          options={categoryOptions}
         />
         <SongTextarea label="Chorus" name="chorus" />
         <SongTextarea label="Bridge" name="bridge" />

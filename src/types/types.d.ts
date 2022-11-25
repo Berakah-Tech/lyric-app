@@ -24,6 +24,7 @@ export type TSongFormData = {
   chorus?: string;
   bridge?: string;
   lyrics?: { stanza: string }[];
+  category: string;
 };
 
 export type TSelectOptions = { value: string; label: string }[];

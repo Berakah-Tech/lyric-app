@@ -1,4 +1,5 @@
 import slugify from "slugify";
+import type { TSelectOptions } from "../types/types";
 
 export const getSlug = (str: string | undefined): string => {
   if (!str) return "";
@@ -9,4 +10,17 @@ export const getSlug = (str: string | undefined): string => {
     .toLowerCase();
 
   return slugify(formattedString);
+};
+
+export const generateSelectOptions = (
+  data: Record<string, string>[],
+  field: { value: string; label: string }
+) => {
+  const options = data.map((data: Record<string, string>) => ({
+    value: data[field.value],
+    label: data[field.label],
+  }));
+
+  // TODO: create a better type check
+  return options as TSelectOptions;
 };
