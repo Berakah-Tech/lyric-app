@@ -12,15 +12,16 @@ export const getSlug = (str: string | undefined): string => {
   return slugify(formattedString);
 };
 
-export const generateSelectOptions = (
-  data: Record<string, string>[],
-  field: { value: string; label: string }
-) => {
-  const options = data.map((data: Record<string, string>) => ({
-    value: data[field.value],
-    label: data[field.label],
+export function generateSelectOptions<
+  T extends Record<string, unknown>,
+  KeyField extends keyof T,
+  LabelField extends keyof T
+>(
+  data: T[],
+  field: { valueKey: KeyField; labelKey: LabelField }
+): TSelectOptions {
+  return data.map((entry) => ({
+    label: String(entry[field.labelKey]),
+    value: String(entry[field.valueKey]),
   }));
-
-  // TODO: create a better type check
-  return options as TSelectOptions;
-};
+}

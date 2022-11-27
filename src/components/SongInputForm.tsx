@@ -23,8 +23,8 @@ const SongInputForm = () => {
 
   const categoryOptions = categoryData
     ? generateSelectOptions(categoryData, {
-        value: "slug",
-        label: "name",
+        valueKey: "slug",
+        labelKey: "name",
       })
     : [];
 
