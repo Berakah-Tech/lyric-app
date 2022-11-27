@@ -25,6 +25,12 @@ export type TSongFormData = {
   bridge?: string;
   lyrics?: { stanza: string }[];
   category: string;
+  music?: {
+    mode: string;
+    tone: string;
+    timeSignature: string;
+  };
+  scale?: string;
 };
 
 export type TSelectOptions = { value: string; label: string }[];

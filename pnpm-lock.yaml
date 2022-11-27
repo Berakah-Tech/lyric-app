@@ -19,6 +19,7 @@ specifiers:
   clsx: ^1.2.1
   eslint: 8.22.0
   eslint-config-next: 13.0.0
+  musictheoryjs: ^2.0.2
   next: 13.0.0
   next-auth: ^4.15.0
   postcss: ^8.4.14
@@ -33,6 +34,7 @@ specifiers:
   slugify: ^1.6.5
   superjson: 1.9.1
   tailwindcss: ^3.2.0
+  tonal: ^4.6.10
   typescript: ^4.8.4
   zod: ^3.18.0
 
@@ -46,6 +48,7 @@ dependencies:
   '@trpc/react-query': 10.0.0-rc.0_uvoftzwfqfqar7rdive37vl4uu
   '@trpc/server': 10.0.0-rc.0
   clsx: 1.2.1
+  musictheoryjs: 2.0.2_typescript@4.8.4
   next: 13.0.0_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.15.0_r5sq4deac3rmm2d5onhwvomqve
   react: 18.2.0
@@ -55,6 +58,7 @@ dependencies:
   react-select: 5.6.1_twyhzqqpkwvvgrmyeapdo6i4my
   slugify: 1.6.5
   superjson: 1.9.1
+  tonal: 4.6.10
   zod: 3.19.1
 
 devDependencies:
@@ -295,6 +299,11 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@lukeed/csprng/1.0.1:
+    resolution: {integrity: sha512-uSvJdwQU5nK+Vdf6zxcWAY2A8r7uqe+gePwLWzJ+fsQehq18pc0I2hJKwypZ2aLM90+Er9u1xn4iLJPZ+xlL4g==}
+    engines: {node: '>=8'}
+    dev: false
+
   /@next-auth/prisma-adapter/1.0.5_lbkeu45xi35sokilhivpvmhs3m:
     resolution: {integrity: sha512-VqMS11IxPXrPGXw6Oul6jcyS/n8GLOWzRMrPr3EMdtD6eOalM6zz05j08PcNiis8QzkfuYnCv49OvufTuaEwYQ==}
     peerDependencies:
@@ -531,6 +540,143 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
 
+  /@tonaljs/abc-notation/4.6.10:
+    resolution: {integrity: sha512-V1SigYdxOdNDPF69rftmdg54LxaM+Zv2Fn5iTpu4036EfaU9b3E1dDkm/WVyNK+9ey7yza1Mn5fiQPyOt6xpzA==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+    dev: false
+
+  /@tonaljs/array/4.6.10:
+    resolution: {integrity: sha512-EIlQfVCjRpnr0nB42tHLi3+l7ognj53VOqin0c1VGiijwcC/YfgWRwPuGyXwmEl3dSODAkJ8XvtVVnLCj1fADg==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+    dev: false
+
+  /@tonaljs/chord-detect/4.6.10:
+    resolution: {integrity: sha512-uspUZ0oMEJbMIUEitIpGv/8ZguiMwVsdpcRMIbqXEOTYP1Ve/7U9IdS3gD1xwkdZRnRU/e+vezmAbzEpFs3pYA==}
+    dependencies:
+      '@tonaljs/chord-type': 4.6.10
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/pcset': 4.6.10
+    dev: false
+
+  /@tonaljs/chord-type/4.6.10:
+    resolution: {integrity: sha512-WOs+YOF120WATg8KdJ6tol5B72TuYL9nAQ2IKCjzZro8p/urRZ3QBdAPcTlbALVdHEU5ec4ptrq57q8X/YBQgw==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/pcset': 4.6.10
+    dev: false
+
+  /@tonaljs/chord/4.6.10:
+    resolution: {integrity: sha512-Ryov9MmFzLcqLpyytV+6d18Mrd9LCUPYh6usvVH0ivkhctRb/UlwTFTwo5tN5IgQrLUphbAmhGx7vSS7z3Lw+Q==}
+    dependencies:
+      '@tonaljs/chord-detect': 4.6.10
+      '@tonaljs/chord-type': 4.6.10
+      '@tonaljs/collection': 4.6.10
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/pcset': 4.6.10
+      '@tonaljs/scale-type': 4.6.10
+    dev: false
+
+  /@tonaljs/collection/4.6.10:
+    resolution: {integrity: sha512-i19j92RjyuTnC6FSYo4TF7JJQjhZ0KJSvEmwxwKOxgw8/+DNiwMf301zGzBJKUYoEc8vNsk3vCEHmxAh4qEPnQ==}
+    dev: false
+
+  /@tonaljs/core/4.6.10:
+    resolution: {integrity: sha512-PV8VXflQM1isS1517VvRUbxEbJoQ5ZLSS5pQLX4L+ffSzXaRBEBLaJgEa/lUyzEYrwiIjVFp4vpaMYWdxY+27Q==}
+    dev: false
+
+  /@tonaljs/duration-value/4.6.10:
+    resolution: {integrity: sha512-GjapTxTJoBYRkUtx1M43+HGsSO3FirNyZQzqKSohtSPfyleZz7OyyiK6eaV5c1eEyGXGdfokKEd2bXhjt3j/KQ==}
+    dev: false
+
+  /@tonaljs/interval/4.6.10:
+    resolution: {integrity: sha512-QZfebbgdNHxjeL5BzzMqDVTYT2gDRWv9VySlaaRNTOv9PbI4RBxjsLJiwr3o97u5ind4QYyjkDdz4Ur0XyO0eQ==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+    dev: false
+
+  /@tonaljs/key/4.6.10:
+    resolution: {integrity: sha512-M1iFdu1dyvzqOEbqACp23TKyaT44G+84VnHBzhsLBe06vGTeoOFg0/+RUFoQCSnkHkv/KI3CjEkkbTzdP8q3DQ==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/note': 4.6.10
+      '@tonaljs/roman-numeral': 4.6.10
+    dev: false
+
+  /@tonaljs/midi/4.6.10:
+    resolution: {integrity: sha512-qTlQebVYqq5jGMNVU75+ZA0TNxZ1t9fvLXHuQAASyBFVSQNYi+FOs63pEBFSonpmmHNdTzIcCwoLRpUKhHaKXw==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+    dev: false
+
+  /@tonaljs/mode/4.6.10:
+    resolution: {integrity: sha512-6gaOdg3DFQ9+tdMa+N5QG2y6FdGv0tZEekkV70lj3FvgRrCHvCh+BQ5/HGv57Bo6i4SGmlYbgBK4lKcda2rZsA==}
+    dependencies:
+      '@tonaljs/collection': 4.6.10
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/interval': 4.6.10
+      '@tonaljs/pcset': 4.6.10
+      '@tonaljs/scale-type': 4.6.10
+    dev: false
+
+  /@tonaljs/note/4.6.10:
+    resolution: {integrity: sha512-1cOxpGAYQwsZlONFj86BP75NWJuXvgKANwf9am7tN8DnbIvXaRQfkoOorD9b14CgO2pfQUZBp7f5pMnByy/9SA==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/midi': 4.6.10
+    dev: false
+
+  /@tonaljs/pcset/4.6.10:
+    resolution: {integrity: sha512-9RkA/6iEo5+C4nof8Z6hC6flqOLPRDiFZ0+X6YL3ug5kFPTX1QXVSmAwFtaUSRzaKbGUKofS0BncK6mbnqzDdA==}
+    dependencies:
+      '@tonaljs/collection': 4.6.10
+      '@tonaljs/core': 4.6.10
+    dev: false
+
+  /@tonaljs/progression/4.6.10:
+    resolution: {integrity: sha512-W8ws0I1ETPNm7djI4V1vy9E3yFRvhRxBDPuXK8C5+TsMWPtwfY03owzT4yc4rPj4eBuVQRqiA614DEn46bQG4Q==}
+    dependencies:
+      '@tonaljs/chord': 4.6.10
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/roman-numeral': 4.6.10
+    dev: false
+
+  /@tonaljs/range/4.6.10:
+    resolution: {integrity: sha512-I3KO/RaGv+s4zC/i4SVwmWYWZUzaOOgiWXzPJtmJDqCiDTsYSUzBn52cWXBL02/83vhBihc4pgHMHkOc8/SwmA==}
+    dependencies:
+      '@tonaljs/collection': 4.6.10
+      '@tonaljs/midi': 4.6.10
+    dev: false
+
+  /@tonaljs/roman-numeral/4.6.10:
+    resolution: {integrity: sha512-EASBrYCAw9HTsC69SVxSNqLShzdl2rincQHO3N46GsKB2/Wa8h5Ya5ToqOSkpJyqcr7UJAB5VyMFxEcdsD3rLQ==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+    dev: false
+
+  /@tonaljs/scale-type/4.6.10:
+    resolution: {integrity: sha512-MBxY4Ix8pUZ46tAn2A7yM2k0Kw/zNlNNKw49ViETZx1HEH2SAN5h2/NuIGfgoR9kdoa9FjTw899oQu6qImfIoA==}
+    dependencies:
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/pcset': 4.6.10
+    dev: false
+
+  /@tonaljs/scale/4.6.10:
+    resolution: {integrity: sha512-s/iHRBSFBa1fSWfnBy9uWaX94o1Y0SdAmEV4nWmjyvIT7J7I3TfQQHFJLq/Bz1mUR7T5faB1MqeGd299xd0Sfw==}
+    dependencies:
+      '@tonaljs/chord-type': 4.6.10
+      '@tonaljs/collection': 4.6.10
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/note': 4.6.10
+      '@tonaljs/pcset': 4.6.10
+      '@tonaljs/scale-type': 4.6.10
+    dev: false
+
+  /@tonaljs/time-signature/4.6.10:
+    resolution: {integrity: sha512-QDfoW5jKZzGetuM46QfLHXchVSy2SVkrYf46V++yPSY4Af+l5Q/yX24B5B/g9qO3q2ocPlKGMK7wa6aGGGT9yA==}
+    dev: false
+
   /@trpc/client/10.0.0-rc.0_@trpc+server@10.0.0-rc.0:
     resolution: {integrity: sha512-JqOE1GRwao1mp3UtY2AVB8iIMMryRMSwAJWZ/wMCI0UCuQn+Px6OSQx5OLvs9Yh8DR6QLJmvDOrx6/OT3fG/iQ==}
     peerDependencies:
@@ -587,6 +733,10 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
+
+  /@types/node/17.0.45:
+    resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
+    dev: false
 
   /@types/node/18.0.0:
     resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
@@ -915,7 +1065,6 @@ packages:
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
-    dev: true
 
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -928,6 +1077,12 @@ packages:
       balanced-match: 1.0.2
       concat-map: 0.0.1
     dev: true
+
+  /brace-expansion/2.0.1:
+    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
+    dependencies:
+      balanced-match: 1.0.2
+    dev: false
 
   /braces/3.0.2:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
@@ -1179,6 +1334,10 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.1
       csstype: 3.1.1
+    dev: false
+
+  /dom-walk/0.1.2:
+    resolution: {integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==}
     dev: false
 
   /electron-to-chromium/1.4.284:
@@ -1616,7 +1775,6 @@ packages:
 
   /fs.realpath/1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
-    dev: true
 
   /fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
@@ -1698,6 +1856,24 @@ packages:
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
+
+  /glob/8.0.3:
+    resolution: {integrity: sha512-ull455NHSHI/Y1FqGaaYFaLGkNMMJbavMrEGFXG/PGrg6y7sutWHUHrz6gy6WEBH6akM1M414dWKCNs+IhKdiQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 5.1.0
+      once: 1.4.0
+    dev: false
+
+  /global/4.4.0:
+    resolution: {integrity: sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==}
+    dependencies:
+      min-document: 2.19.0
+      process: 0.11.10
+    dev: false
 
   /globals/13.17.0:
     resolution: {integrity: sha512-1C+6nQRb1GwGMKm2dH/E7enFAMxGTmGI7/dEdhy/DNelv85w9B72t3uc5frtMNXIbzrarJJ/lTCjcaZwbLJmyw==}
@@ -1788,11 +1964,9 @@ packages:
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
-    dev: true
 
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
-    dev: true
 
   /internal-slot/1.0.3:
     resolution: {integrity: sha512-O0DB1JC/sPyZl7cIo78n5dR7eUSwwpYPiXRhTzNxZVAMUuB8vlnRFyLxdrVToks6XPLVnFfbzaVd5WLjhgg+vA==}
@@ -1949,6 +2123,10 @@ packages:
       minimist: 1.2.7
     dev: true
 
+  /jsonc-parser/3.2.0:
+    resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
+    dev: false
+
   /jsx-ast-utils/3.3.3:
     resolution: {integrity: sha512-fYQHZTZ8jSfmWZ0iyzfwiU4WDX4HpHbMCZ3gPlWYiCl3BoeOTsqKBqnTVfH2rYT7eP5c3sVbeSPHnnJOaTrWiw==}
     engines: {node: '>=4.0'}
@@ -2007,6 +2185,16 @@ packages:
     dependencies:
       yallist: 4.0.0
 
+  /lunr/2.3.9:
+    resolution: {integrity: sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==}
+    dev: false
+
+  /marked/4.2.3:
+    resolution: {integrity: sha512-slWRdJkbTZ+PjkyJnE30Uid64eHwbwa1Q25INCAYfZlK4o6ylagBy/Le9eWntqJFoFT93ikUKMv47GZ4gTwHkw==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: false
+
   /memoize-one/6.0.0:
     resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}
     dev: false
@@ -2024,11 +2212,24 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /min-document/2.19.0:
+    resolution: {integrity: sha512-9Wy1B3m3f66bPPmU5hdA4DR4PB2OfDU/+GS3yAB7IQozE3tqXaVv2zOjgla7MEGSRv95+ILmOuvhLkOK6wJtCQ==}
+    dependencies:
+      dom-walk: 0.1.2
+    dev: false
+
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
     dev: true
+
+  /minimatch/5.1.0:
+    resolution: {integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: false
 
   /minimist/1.2.7:
     resolution: {integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==}
@@ -2045,6 +2246,18 @@ packages:
   /ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
+
+  /musictheoryjs/2.0.2_typescript@4.8.4:
+    resolution: {integrity: sha512-igMgK7YqX99pCoqV/5LUmRfJdZ2WcekszCEfcVp+7cFgy2gKVsfwmvHMeoMOu6roTfvrBC2rGv6HDLPNmyHeWw==}
+    dependencies:
+      '@types/node': 17.0.45
+      global: 4.4.0
+      ts-debounce: 4.0.0
+      typedoc: 0.22.18_typescript@4.8.4
+      uid: 2.0.1
+    transitivePeerDependencies:
+      - typescript
+    dev: false
 
   /nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
@@ -2224,7 +2437,6 @@ packages:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
     dependencies:
       wrappy: 1.0.2
-    dev: true
 
   /openid-client/5.2.1:
     resolution: {integrity: sha512-KPxqWnxobG/70Cxqyvd43RWfCfHedFnCdHSBpw5f7WnTnuBAeBnvot/BIo+brrcTr0wyAYUlL/qejQSGwWtdIg==}
@@ -2435,6 +2647,11 @@ packages:
     requiresBuild: true
     dependencies:
       '@prisma/engines': 4.5.0
+
+  /process/0.11.10:
+    resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
+    engines: {node: '>= 0.6.0'}
+    dev: false
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
@@ -2647,6 +2864,14 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /shiki/0.10.1:
+    resolution: {integrity: sha512-VsY7QJVzU51j5o1+DguUd+6vmCmZ5v/6gYu4vyYAhzjuNQU6P/vmSy4uQaOhvje031qQMiW0d2BwgMH52vqMng==}
+    dependencies:
+      jsonc-parser: 3.2.0
+      vscode-oniguruma: 1.7.0
+      vscode-textmate: 5.2.0
+    dev: false
+
   /side-channel/1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
     dependencies:
@@ -2823,6 +3048,34 @@ packages:
       is-number: 7.0.0
     dev: true
 
+  /tonal/4.6.10:
+    resolution: {integrity: sha512-gJvd8h5Av4bE/KYkEedjKzvmuiU/wJJUJ1O4x+0vi2ttAFsLyC6RCNR07XMFuETJudAxoCwXTsdFsN1L9uv8oQ==}
+    dependencies:
+      '@tonaljs/abc-notation': 4.6.10
+      '@tonaljs/array': 4.6.10
+      '@tonaljs/chord': 4.6.10
+      '@tonaljs/chord-type': 4.6.10
+      '@tonaljs/collection': 4.6.10
+      '@tonaljs/core': 4.6.10
+      '@tonaljs/duration-value': 4.6.10
+      '@tonaljs/interval': 4.6.10
+      '@tonaljs/key': 4.6.10
+      '@tonaljs/midi': 4.6.10
+      '@tonaljs/mode': 4.6.10
+      '@tonaljs/note': 4.6.10
+      '@tonaljs/pcset': 4.6.10
+      '@tonaljs/progression': 4.6.10
+      '@tonaljs/range': 4.6.10
+      '@tonaljs/roman-numeral': 4.6.10
+      '@tonaljs/scale': 4.6.10
+      '@tonaljs/scale-type': 4.6.10
+      '@tonaljs/time-signature': 4.6.10
+    dev: false
+
+  /ts-debounce/4.0.0:
+    resolution: {integrity: sha512-+1iDGY6NmOGidq7i7xZGA4cm8DAa6fqdYcvO5Z6yBevH++Bdo9Qt/mN0TzHUgcCcKv1gmh9+W5dHqz8pMWbCbg==}
+    dev: false
+
   /tsconfig-paths/3.14.1:
     resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
     dependencies:
@@ -2862,11 +3115,32 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /typedoc/0.22.18_typescript@4.8.4:
+    resolution: {integrity: sha512-NK9RlLhRUGMvc6Rw5USEYgT4DVAUFk7IF7Q6MYfpJ88KnTZP7EneEa4RcP+tX1auAcz7QT1Iy0bUSZBYYHdoyA==}
+    engines: {node: '>= 12.10.0'}
+    hasBin: true
+    peerDependencies:
+      typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x || 4.5.x || 4.6.x || 4.7.x
+    dependencies:
+      glob: 8.0.3
+      lunr: 2.3.9
+      marked: 4.2.3
+      minimatch: 5.1.0
+      shiki: 0.10.1
+      typescript: 4.8.4
+    dev: false
+
   /typescript/4.8.4:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
+
+  /uid/2.0.1:
+    resolution: {integrity: sha512-PF+1AnZgycpAIEmNtjxGBVmKbZAQguaa4pBUq6KNaGEcpzZ2klCNZLM34tsjp76maN00TttiiUf6zkIBpJQm2A==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@lukeed/csprng': 1.0.1
+    dev: false
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
@@ -2927,6 +3201,14 @@ packages:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
     dev: true
 
+  /vscode-oniguruma/1.7.0:
+    resolution: {integrity: sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA==}
+    dev: false
+
+  /vscode-textmate/5.2.0:
+    resolution: {integrity: sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ==}
+    dev: false
+
   /which-boxed-primitive/1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}
     dependencies:
@@ -2952,7 +3234,6 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
-    dev: true
 
   /xtend/4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}

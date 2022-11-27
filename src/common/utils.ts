@@ -12,7 +12,7 @@ export const getSlug = (str: string | undefined): string => {
   return slugify(formattedString);
 };
 
-export function generateSelectOptions<
+export function generateOptionsFromObject<
   T extends Record<string, unknown>,
   KeyField extends keyof T,
   LabelField extends keyof T
@@ -24,4 +24,15 @@ export function generateSelectOptions<
     label: String(entry[field.labelKey]),
     value: String(entry[field.valueKey]),
   }));
+}
+
+export function generateOptionsFromArray(
+  data: string[],
+  { capitalize } = { capitalize: false }
+): TSelectOptions {
+  const options = data.map((entry) => ({
+    label: capitalize ? entry.charAt(0).toUpperCase() + entry.slice(1) : entry,
+    value: entry,
+  }));
+  return options;
 }

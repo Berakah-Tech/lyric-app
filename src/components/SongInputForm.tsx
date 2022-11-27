@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import { languageOptions } from "../common/data";
-import { generateSelectOptions } from "../common/utils";
+import { generateOptionsFromObject } from "../common/utils";
 import type { TSongFormData } from "../types/types";
 import { trpc } from "../utils/trpc";
 import { LanguageSchema } from "../validations/zodSchemas";
@@ -9,24 +9,25 @@ import Select from "./elements/Select";
 import SlugInput from "./elements/SlugInput";
 import TextArea from "./elements/TextArea";
 import StanzaInput from "./StanzaInput";
+import MusicInput from "./MusicInput";
 
 const SongInputForm = () => {
   const { watch } = useFormContext<TSongFormData>();
+
   const defaultValue = LanguageSchema.enum.english;
+
+  const { data: categoryData } = trpc.category.getAll.useQuery();
+  const categoryOptions = categoryData
+    ? generateOptionsFromObject(categoryData, {
+        valueKey: "slug",
+        labelKey: "name",
+      })
+    : [];
 
   const SongInput = Input<TSongFormData>;
   const SongTextarea = TextArea<TSongFormData>;
   const SongSlug = SlugInput<TSongFormData>;
   const SongSelect = Select<TSongFormData>;
-
-  const { data: categoryData } = trpc.category.getAll.useQuery();
-
-  const categoryOptions = categoryData
-    ? generateSelectOptions(categoryData, {
-        valueKey: "slug",
-        labelKey: "name",
-      })
-    : [];
 
   return (
     <>
@@ -49,6 +50,7 @@ const SongInputForm = () => {
         <SongTextarea label="Chorus" name="chorus" />
         <SongTextarea label="Bridge" name="bridge" />
         <StanzaInput />
+        <MusicInput />
       </form>
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </>
