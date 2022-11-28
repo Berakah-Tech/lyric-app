@@ -5,6 +5,7 @@ import RightSection from "../../../components/admin/RightSection";
 import AdminLayout from "../../../components/layouts/AdminLayout";
 import SongInputForm from "../../../components/SongInputForm";
 import type { TSongFormData } from "../../../types/types";
+import { trpc } from "../../../utils/trpc";
 import { SongSchema } from "../../../validations/zodSchemas";
 
 const FORM_ID = "song-input-form";
@@ -15,9 +16,11 @@ const CreateSongPage = () => {
   });
   const { handleSubmit } = formMethods;
 
-  const onFormSubmit = handleSubmit((data) =>
-    console.log("sbumit data test", data)
-  );
+  const { mutate } = trpc.song.add.useMutation();
+
+  const onFormSubmit = handleSubmit((data) => {
+    mutate(data);
+  });
 
   return (
     <div className="create-song-wrap">

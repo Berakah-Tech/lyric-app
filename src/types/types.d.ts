@@ -21,7 +21,7 @@ export type TSongFormData = {
   author?: string;
   slug?: string;
   language: TLanguage;
-  lyrics?: {
+  lyrics: {
     chorus?: string;
     bridge?: string;
     stanzas: { stanza: string }[];

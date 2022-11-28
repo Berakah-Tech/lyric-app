@@ -23,8 +23,8 @@ model Song {
   id           String         @id @default(cuid())
   language     String
   name         String
-  lyrics       Json
-  slug         String?
+  lyrics       Json?
+  slug         String?        @unique
   author       String?
   music        Json?
   category     Category[]

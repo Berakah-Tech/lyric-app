@@ -1,13 +1,18 @@
-import { prisma } from "./../../db/client";
 import { z } from "zod";
-import { router, publicProcedure } from "../trpc";
-import slugify from "slugify";
 import { SongSchema } from "../../../validations/zodSchemas";
+import { publicProcedure, router } from "../trpc";
 
 export const songRouter = router({
   add: publicProcedure.input(SongSchema).mutation(async ({ input, ctx }) => {
-    console.log(input);
-    const data = await ctx.prisma.song.create({ data: input });
+    console.log("from backend", input);
+
+    const data = await ctx.prisma.song.create({
+      data: { ...input, category: { connect: { slug: input.category } } },
+    });
+    console.log(
+      "🚀 ~ file: song.router.ts ~ line 9 ~ add:publicProcedure.input ~ data",
+      data
+    );
   }),
   byId: publicProcedure.input(z.string()).query(async ({ input, ctx }) => {
     const data = await ctx.prisma.song.findUnique({
@@ -15,6 +20,10 @@ export const songRouter = router({
         id: input,
       },
     });
+    console.log(
+      "🚀 ~ file: song.router.ts ~ line 23 ~ byId:publicProcedure.input ~ data",
+      data
+    );
   }),
   getAll: publicProcedure.query(async ({ ctx }) => {
     const data = await ctx.prisma.song.findMany();
