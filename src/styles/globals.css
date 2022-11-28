@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url("./table.css");
+@import url("react-toastify/dist/ReactToastify.css");
 
 @layer base {
   h1 {
