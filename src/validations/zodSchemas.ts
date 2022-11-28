@@ -4,25 +4,30 @@ export const LanguageSchema = z.enum(["english", "tamil"]);
 
 export const LyricsSchema = z.object({
   chorus: z.string(),
-  stanzas: z.string().array().nonempty(),
   bridge: z.string(),
-  chorusOnEveryStanza: z.boolean(),
+  stanzas: z
+    .object({
+      stanza: z.string().min(1),
+    })
+    .array(),
+  chorusAfterEveryStanza: z.boolean(),
 });
 
 export const MusicSchema = z
   .object({
-    scale: z.string(),
-    rythm: z.string(),
-    chords: z.string().array(),
+    mode: z.string(),
+    tone: z.string(),
+    timeSignature: z.string(),
   })
   .partial();
 
 export const SongSchema = z.object({
-  language: LanguageSchema,
-  name: z.string(),
-  lyrics: LyricsSchema,
-  slug: z.string().optional(),
+  name: z.string().min(1),
   author: z.string().optional(),
+  slug: z.string().optional(),
+  language: LanguageSchema,
+  lyrics: LyricsSchema,
+  category: z.string(),
   music: MusicSchema.optional(),
 });
 

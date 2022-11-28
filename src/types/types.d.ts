@@ -21,16 +21,18 @@ export type TSongFormData = {
   author?: string;
   slug?: string;
   language: TLanguage;
-  chorus?: string;
-  bridge?: string;
-  lyrics?: { stanza: string }[];
+  lyrics?: {
+    chorus?: string;
+    bridge?: string;
+    stanzas: { stanza: string }[];
+    chorusAfterEveryStanza: boolean;
+  };
   category: string;
   music?: {
     mode: string;
     tone: string;
     timeSignature: string;
   };
-  scale?: string;
 };
 
 export type TSelectOptions = { value: string; label: string }[];

@@ -10,9 +10,18 @@ import SlugInput from "./elements/SlugInput";
 import TextArea from "./elements/TextArea";
 import StanzaInput from "./StanzaInput";
 import MusicInput from "./MusicInput";
+import Switch from "./elements/Switch";
 
 const SongInputForm = () => {
-  const { watch } = useFormContext<TSongFormData>();
+  const {
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useFormContext<TSongFormData>();
+  console.log(
+    "🚀 ~ file: SongInputForm.tsx ~ line 17 ~ SongInputForm ~ errors",
+    errors
+  );
 
   const defaultValue = LanguageSchema.enum.english;
 
@@ -28,10 +37,14 @@ const SongInputForm = () => {
   const SongTextarea = TextArea<TSongFormData>;
   const SongSlug = SlugInput<TSongFormData>;
   const SongSelect = Select<TSongFormData>;
+  const SongSwitch = Switch<TSongFormData>;
 
   return (
     <>
-      <form className="grid grid-cols-2 gap-y-6 gap-x-8">
+      <form
+        className="grid grid-cols-2 gap-y-6 gap-x-8"
+        onSubmit={handleSubmit((data) => console.log("submit data", data))}
+      >
         <SongInput label="Name" name="name" />
         <SongSlug label="Slug" name="slug" slugFrom="name" />
         <SongInput label="Author" name="author" />
@@ -47,10 +60,16 @@ const SongInputForm = () => {
           name="category"
           options={categoryOptions}
         />
-        <SongTextarea label="Chorus" name="chorus" />
-        <SongTextarea label="Bridge" name="bridge" />
+        <SongTextarea label="Chorus" name="lyrics.chorus" />
+        <SongTextarea label="Bridge" name="lyrics.bridge" />
+        <SongSwitch
+          name="lyrics.chorusAfterEveryStanza"
+          label="Chorus after every Stanza"
+          defaultValue={true}
+        />
         <StanzaInput />
         <MusicInput />
+        <input type="submit" />
       </form>
       <pre>{JSON.stringify(watch(), null, 2)}</pre>
     </>

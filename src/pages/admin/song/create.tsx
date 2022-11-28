@@ -3,9 +3,13 @@ import { FormProvider, useForm } from "react-hook-form";
 import SongInputForm from "../../../components/SongInputForm";
 import AdminLayout from "../../../layouts/AdminLayout";
 import type { TSongFormData } from "../../../types/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SongSchema } from "../../../validations/zodSchemas";
 
 const CreateSongPage = () => {
-  const formMethods = useForm<TSongFormData>();
+  const formMethods = useForm<TSongFormData>({
+    resolver: zodResolver(SongSchema),
+  });
 
   return (
     <div className="create-song-wrap">
