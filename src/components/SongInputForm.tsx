@@ -12,16 +12,12 @@ import StanzaInput from "./StanzaInput";
 import MusicInput from "./MusicInput";
 import Switch from "./elements/Switch";
 
-const SongInputForm = () => {
-  const {
-    watch,
-    handleSubmit,
-    formState: { errors },
-  } = useFormContext<TSongFormData>();
-  console.log(
-    "🚀 ~ file: SongInputForm.tsx ~ line 17 ~ SongInputForm ~ errors",
-    errors
-  );
+interface ISongInputFormProps {
+  onFormSubmit: (e?: React.FormEvent) => Promise<void>;
+  formID: string;
+}
+const SongInputForm = ({ onFormSubmit, formID }: ISongInputFormProps) => {
+  const { watch } = useFormContext<TSongFormData>();
 
   const defaultValue = LanguageSchema.enum.english;
 
@@ -43,7 +39,8 @@ const SongInputForm = () => {
     <>
       <form
         className="grid grid-cols-2 gap-y-6 gap-x-8"
-        onSubmit={handleSubmit((data) => console.log("submit data", data))}
+        onSubmit={onFormSubmit}
+        id={formID}
       >
         <SongInput label="Name" name="name" />
         <SongSlug label="Slug" name="slug" slugFrom="name" />

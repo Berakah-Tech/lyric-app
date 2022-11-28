@@ -1,16 +1,23 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { type ReactElement } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import SongInputForm from "../../../components/SongInputForm";
-import AdminLayout from "../../../components/layouts/AdminLayout";
-import type { TSongFormData } from "../../../types/types";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { SongSchema } from "../../../validations/zodSchemas";
 import RightSection from "../../../components/admin/RightSection";
+import AdminLayout from "../../../components/layouts/AdminLayout";
+import SongInputForm from "../../../components/SongInputForm";
+import type { TSongFormData } from "../../../types/types";
+import { SongSchema } from "../../../validations/zodSchemas";
+
+const FORM_ID = "song-input-form";
 
 const CreateSongPage = () => {
   const formMethods = useForm<TSongFormData>({
     resolver: zodResolver(SongSchema),
   });
+  const { handleSubmit } = formMethods;
+
+  const onFormSubmit = handleSubmit((data) =>
+    console.log("sbumit data test", data)
+  );
 
   return (
     <div className="create-song-wrap">
@@ -21,11 +28,11 @@ const CreateSongPage = () => {
           </div>
           <div className="song-input-section mr-8 mt-8">
             <FormProvider {...formMethods}>
-              <SongInputForm />
+              <SongInputForm onFormSubmit={onFormSubmit} formID={FORM_ID} />
             </FormProvider>
           </div>
         </div>
-        <RightSection />
+        <RightSection formID={FORM_ID} />
       </div>
     </div>
   );
