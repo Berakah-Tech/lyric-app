@@ -1,3 +1,5 @@
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { SongSchema } from "../../../validations/zodSchemas";
 import { publicProcedure, router } from "../trpc";
@@ -6,13 +8,28 @@ export const songRouter = router({
   add: publicProcedure.input(SongSchema).mutation(async ({ input, ctx }) => {
     console.log("from backend", input);
 
-    const data = await ctx.prisma.song.create({
-      data: { ...input, category: { connect: { slug: input.category } } },
-    });
-    console.log(
-      "🚀 ~ file: song.router.ts ~ line 9 ~ add:publicProcedure.input ~ data",
-      data
-    );
+    try {
+      const data = await ctx.prisma.song.create({
+        data: { ...input, category: { connect: { slug: input.category } } },
+      });
+
+      return data;
+    } catch (e) {
+      if (e instanceof PrismaClientKnownRequestError) {
+        if (e.code === "P2002") {
+          console.log(
+            "There is a unique constraint violation, a new song cannot be created with this name"
+          );
+          throw new TRPCError({
+            code: "CONFLICT",
+            message:
+              "There is a unique constraint violation, a new song cannot be created with this name",
+            cause: e,
+          });
+        }
+      }
+      throw e;
+    }
   }),
   byId: publicProcedure.input(z.string()).query(async ({ input, ctx }) => {
     const data = await ctx.prisma.song.findUnique({

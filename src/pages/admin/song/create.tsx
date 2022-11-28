@@ -16,7 +16,7 @@ const CreateSongPage = () => {
   });
   const { handleSubmit } = formMethods;
 
-  const { mutate } = trpc.song.add.useMutation();
+  const { mutate, error } = trpc.song.add.useMutation();
 
   const onFormSubmit = handleSubmit((data) => {
     mutate(data);
@@ -24,6 +24,7 @@ const CreateSongPage = () => {
 
   return (
     <div className="create-song-wrap">
+      {error && <p>{error.message}</p>}
       <div className="create-song-container flex">
         <div className="w-full">
           <div className="create-song-header">
