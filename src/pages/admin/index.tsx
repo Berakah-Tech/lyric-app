@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react";
 import React, { type ReactElement } from "react";
-import AdminLayout from "../../layouts/AdminLayout";
+import AdminLayout from "../../components/layouts/AdminLayout";
 
 const AdminPage = () => {
   const { data: session } = useSession();

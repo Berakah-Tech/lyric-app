@@ -1,6 +1,6 @@
 import React from "react";
-import AdminHeader from "../components/AdminHeader";
-import AdminSidebar from "../components/AdminSidebar";
+import AdminHeader from "../admin/AdminHeader";
+import AdminSidebar from "../admin/AdminSidebar";
 
 interface LayoutProps {
   children: React.ReactNode;

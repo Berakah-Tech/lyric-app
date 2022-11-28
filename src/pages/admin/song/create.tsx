@@ -1,10 +1,11 @@
 import { type ReactElement } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import SongInputForm from "../../../components/SongInputForm";
-import AdminLayout from "../../../layouts/AdminLayout";
+import AdminLayout from "../../../components/layouts/AdminLayout";
 import type { TSongFormData } from "../../../types/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SongSchema } from "../../../validations/zodSchemas";
+import RightSection from "../../../components/admin/RightSection";
 
 const CreateSongPage = () => {
   const formMethods = useForm<TSongFormData>({
@@ -24,9 +25,7 @@ const CreateSongPage = () => {
             </FormProvider>
           </div>
         </div>
-        <div className="song-right-section min-w-[300px] bg-gray-100">
-          right section
-        </div>
+        <RightSection />
       </div>
     </div>
   );

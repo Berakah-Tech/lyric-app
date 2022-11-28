@@ -5,7 +5,7 @@ import {
   adminCategoryPage,
   adminSongPage,
   adminUsersPage,
-} from "../common/urls";
+} from "../../common/urls";
 
 const AdminSidebar = () => {
   return (

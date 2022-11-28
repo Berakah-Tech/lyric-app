@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { type ReactElement } from "react";
 import { adminSongCreatePage } from "../../../common/urls";
-import AdminLayout from "../../../layouts/AdminLayout";
+import AdminLayout from "../../../components/layouts/AdminLayout";
 import { trpc } from "../../../utils/trpc";
 
 const SongPage = () => {
