@@ -22,7 +22,7 @@ const SongPage = () => {
             <tr className="table-heading-row">
               <th className="table-heading">Name</th>
               <th className="table-heading w-[20%]">Language</th>
-              <th className="table-heading w-[20%]">Author</th>
+              <th className="table-heading w-[20%]">Category</th>
             </tr>
             {data &&
               data.map((song) => (

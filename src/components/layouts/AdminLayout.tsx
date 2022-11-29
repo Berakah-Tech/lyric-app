@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
 import AdminHeader from "../admin/AdminHeader";
 import AdminSidebar from "../admin/AdminSidebar";
 
@@ -14,6 +15,7 @@ const AdminLayout = ({ children }: LayoutProps) => {
         <AdminSidebar />
         <div className="w-full p-8">{children}</div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
