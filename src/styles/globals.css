@@ -1,9 +1,10 @@
+@import url("./table.css");
+@import url("react-toastify/dist/ReactToastify.css");
+@import url("./elements.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("./table.css");
-@import url("react-toastify/dist/ReactToastify.css");
 
 @layer base {
   h1 {
@@ -14,20 +15,5 @@
   }
   h3 {
     @apply text-lg;
-  }
-}
-@import url("./elements.css");
-
-@layer components {
-  .btn-black {
-    @apply inline-block h-fit rounded bg-black p-2 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out;
-
-    &:hover {
-      @apply bg-gray-700 shadow;
-    }
-  }
-
-  .input-field {
-    @apply border-2 border-gray-400;
   }
 }

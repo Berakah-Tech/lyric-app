@@ -1,5 +1,3 @@
-@tailwind components;
-
 @layer components {
   .table-heading-row {
     .table-heading {
