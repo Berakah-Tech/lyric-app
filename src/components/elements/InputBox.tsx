@@ -1,7 +1,9 @@
 import clsx from "clsx";
+import get from "lodash/get";
 import React from "react";
 import type { FieldValues, Path } from "react-hook-form";
 import { useFormContext } from "react-hook-form";
+import ErrorMessage from "./ErrorMessage";
 
 type TInputBoxProps<T> = {
   children: React.ReactNode;
@@ -19,7 +21,10 @@ const InputBox = <T extends FieldValues>({
     formState: { errors },
   } = useFormContext<T>();
 
-  const errorMsg = errors[name]?.message;
+  // get error from object path
+  const error = get(errors, name);
+  const errorMsg = error?.message;
+
   return (
     <div className={clsx(className, "input-box flex w-full flex-col")}>
       {label && (
@@ -28,7 +33,7 @@ const InputBox = <T extends FieldValues>({
         </label>
       )}
       {children}
-      {typeof errorMsg === "string" && <p>{errorMsg}</p>}
+      {typeof errorMsg === "string" && <ErrorMessage msg={errorMsg} />}
     </div>
   );
 };

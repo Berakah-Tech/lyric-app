@@ -37,13 +37,11 @@ export const songRouter = router({
         id: input,
       },
     });
-    console.log(
-      "🚀 ~ file: song.router.ts ~ line 23 ~ byId:publicProcedure.input ~ data",
-      data
-    );
   }),
   getAll: publicProcedure.query(async ({ ctx }) => {
-    const data = await ctx.prisma.song.findMany();
+    const data = await ctx.prisma.song.findMany({
+      include: { category: true },
+    });
     return data;
   }),
   delete: publicProcedure.input(z.string()).query(async ({ input, ctx }) => {

@@ -16,25 +16,6 @@ export type TSong = z.input<typeof SongSchema>;
 
 export type TBook = z.input<typeof BookSchema>;
 
-export type TSongFormData = {
-  name: string;
-  author?: string;
-  slug?: string;
-  language: TLanguage;
-  lyrics: {
-    chorus?: string;
-    bridge?: string;
-    stanzas: { stanza: string }[];
-    chorusAfterEveryStanza: boolean;
-  };
-  category: string;
-  music?: {
-    mode: string;
-    tone: string;
-    timeSignature: string;
-  };
-};
-
 export type TSelectOptions = { value: string; label: string }[];
 
 export type TSongFormDataKey = keyof TSongFormData;

@@ -4,13 +4,13 @@ import { FormProvider, useForm } from "react-hook-form";
 import AdminLayout from "../../../components/layouts/AdminLayout";
 import FormLayout from "../../../components/layouts/FormLayout";
 import SongInputForm from "../../../components/SongInputForm";
-import type { TSongFormData } from "../../../types/types";
+import type { TSong } from "../../../types/types";
 import { SongSchema } from "../../../validations/zodSchemas";
 
 const FORM_ID = "song-input-form";
 
 const CreateSongPage = () => {
-  const formMethods = useForm<TSongFormData>({
+  const formMethods = useForm<TSong>({
     resolver: zodResolver(SongSchema),
   });
 

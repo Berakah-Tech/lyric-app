@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { toast } from "react-toastify";
 import { languageOptions } from "../common/data";
 import { generateOptionsFromObject } from "../common/utils";
-import type { TSongFormData } from "../types/types";
+import type { TSong } from "../types/types";
 import { trpc } from "../utils/trpc";
 import { LanguageSchema } from "../validations/zodSchemas";
 import Input from "./elements/Input";
@@ -14,19 +14,27 @@ import TextArea from "./elements/TextArea";
 import MusicInput from "./MusicInput";
 import StanzaInput from "./StanzaInput";
 
+// add type generics to form elements
+const SongInput = Input<TSong>;
+const SongTextarea = TextArea<TSong>;
+const SongSlug = SlugInput<TSong>;
+const SongSelect = Select<TSong>;
+const SongSwitch = Switch<TSong>;
+
 interface ISongInputFormProps {
   formID: string;
 }
 
-// add type generics to form elements
-const SongInput = Input<TSongFormData>;
-const SongTextarea = TextArea<TSongFormData>;
-const SongSlug = SlugInput<TSongFormData>;
-const SongSelect = Select<TSongFormData>;
-const SongSwitch = Switch<TSongFormData>;
-
 const SongInputForm = ({ formID }: ISongInputFormProps) => {
-  const { watch, handleSubmit } = useFormContext<TSongFormData>();
+  const {
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useFormContext<TSong>();
+  console.log(
+    "🚀 ~ file: SongInputForm.tsx:30 ~ SongInputForm ~ errors",
+    errors
+  );
 
   // get all categories
   const { data: categoryData } = trpc.category.getAll.useQuery();

@@ -3,13 +3,14 @@ import { z } from "zod";
 export const LanguageSchema = z.enum(["english", "tamil"]);
 
 export const LyricsSchema = z.object({
-  chorus: z.string().optional(),
+  chorus: z.string().min(1),
   bridge: z.string().optional(),
   stanzas: z
     .object({
       stanza: z.string().min(1),
     })
-    .array(),
+    .array()
+    .optional(),
   chorusAfterEveryStanza: z.boolean(),
 });
 
