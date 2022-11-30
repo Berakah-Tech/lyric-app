@@ -1,9 +1,17 @@
 @layer components {
   .btn-black {
-    @apply inline-block rounded bg-black p-2 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out;
+    @apply inline-block rounded bg-black p-2 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-300 ease-in-out;
 
     &:hover {
       @apply bg-gray-700 shadow;
+    }
+  }
+
+  .btn-back {
+    @apply rounded p-2 ring-1 ring-black transition duration-300 ease-in-out;
+
+    &:hover {
+      @apply bg-black text-white;
     }
   }
 

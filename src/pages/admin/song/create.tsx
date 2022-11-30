@@ -24,7 +24,9 @@ const CreateSongPage = () => {
 CreateSongPage.getLayout = (page: ReactElement) => {
   return (
     <AdminLayout>
-      <FormLayout formID={FORM_ID}>{page}</FormLayout>
+      <FormLayout formID={FORM_ID} title="Add a Song">
+        {page}
+      </FormLayout>
     </AdminLayout>
   );
 };
